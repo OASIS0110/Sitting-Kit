@@ -5,9 +5,7 @@
       "states": {
         "default": {
           "transitions": [
-            {
-              "walking": "(1.0)"
-            }
+            {"walking": "(1.0)"}
           ],
           "on_entry": [
             "/function sitting_kit",
@@ -23,6 +21,27 @@
           "on_entry": [
             "/function sitting_kit",
             "/function sitting_kit_login"
+          ]
+        }
+      }
+    },
+    "controller.animation.has_rider": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"standing": "!query.has_rider"}
+          ]
+        },
+        "standing": {
+          "transitions": [
+            {
+              "default": "query.has_rider"
+            }
+          ],
+          "on_entry": [
+            "/gamerule sendcommandfeedback false",
+            "/execute @s[scores={sitting_kit=5..}] ~~~ tp @p[r=1.5,rm=1.2] ~~0.5~",
+            "/gamerule sendcommandfeedback true"
           ]
         }
       }

@@ -8,11 +8,13 @@
       "is_experimental": false,
       "scripts": {
         "animate": [
-          "sitting_kit"
+          "sitting_kit",
+          "has_rider"
         ]
       },
       "animations": {
-        "sitting_kit": "controller.animation.sitting_kit"
+        "sitting_kit": "controller.animation.sitting_kit",
+        "has_rider": "controller.animation.has_rider"
       }
     },
 
