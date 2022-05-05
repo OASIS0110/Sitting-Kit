@@ -29,7 +29,19 @@
       "states": {
         "default": {
           "transitions": [
+            {"riding": "query.has_rider"},
             {"standing": "!query.has_rider"}
+          ]
+        },
+        "riding": {
+          "transitions": [
+            {
+              "default": "query.has_rider"
+            }
+          ],
+          "on_entry": [
+            "/tag @p add player_riding",
+            "/tag @p add stand_judge"
           ]
         },
         "standing": {
@@ -39,8 +51,9 @@
             }
           ],
           "on_entry": [
+            "/tag @a[r=1.5] remove player_riding",
             "/gamerule sendcommandfeedback false",
-            "/execute @s[scores={sitting_kit=5..}] ~~~ tp @p[r=1.5,rm=1.2] ~~0.5~",
+            "/execute @s[scores={sitting_kit=5..}] ~~~ tp @p[r=1.5,rm=1.0,tag=!player_riding,tag=stand_judge] ~~0.5~",
             "/gamerule sendcommandfeedback true"
           ]
         }
