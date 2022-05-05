@@ -1,0 +1,26 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "anywhere_sitting:sitting_kit_crimson"
+        },
+        "tags": ["crafting_table"],
+        "pattern": [
+            " W ",
+            "WIW",
+            " W "
+        ],
+        "key": {
+            "W": {
+                "item": "minecraft:crimson_slab"
+            },
+            "I": {
+                "item": "minecraft:iron_ingot"
+            }
+        },
+        "result": {
+            "item": "anywhere_sitting:sitting_kit",
+            "count": 2
+        }
+    }
+}

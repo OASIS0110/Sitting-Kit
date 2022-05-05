@@ -1,0 +1,25 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Anywhere sitting addon",
+    "description": "ここらで休もうか。\n\nMade by §bOASIS §f/ §bmc0110",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 16, 220],
+    "uuid": "ef030e88-8f74-4f87-aa85-8d3d5446a9c5"
+  },
+  "modules": [
+    {
+      "type": "data",
+      "description": "",
+      "version": [1, 0, 0],
+      "uuid": "367d746d-ab7f-4a02-bd2e-c0ba40c39081"
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "OASIS"
+    ],
+    "url": "https://www.youtube.com/channel/UCReGrmBZ0ZR1UE1qe_5lkqA",
+    "license": "MIT license"
+  }
+}
