@@ -17,13 +17,12 @@ event entity @s[tag=no_chair] instant_despawn
 #stack detection
 execute @e[tag=sitting_kit] ~~~ event entity @e[r=0.999,type=anywhere_sitting:sitting_kit,tag=!sitting_kit] instant_despawn
 # chair particle
-tag @e remove particle_can_see
-execute @a ~~~ tag @e[type=anywhere_sitting:sitting_kit,r=3,rm=0.01,scores={sitting_kit=10..}] add particle_can_see
-execute @a ~~~ tag @e[r=0.01,type=anywhere_sitting:sitting_kit] remove particle_can_see
-scoreboard players add @s[tag=particle_can_see] particle_time 1
-execute @s[tag=particle_can_see,scores={particle_time=1}] ~~~ particle minecraft:balloon_gas_particle ~~~
+tag @e remove show_particle
+execute @a[tag=!player_riding] ~~~ tag @e[type=anywhere_sitting:sitting_kit,r=4,scores={sitting_kit=10..}] add show_particle
+scoreboard players add @s[tag=show_particle] particle_time 1
+execute @s[tag=show_particle,tag=!riding,scores={particle_time=1}] ~~~ particle minecraft:balloon_gas_particle ~~~
 scoreboard players set @s[scores={particle_time=5..}] particle_time 0
-scoreboard players set @s[tag=!particle_can_see] particle_time 0
+scoreboard players set @s[tag=!show_particle] particle_time 0
 # first chair setting
 execute @s[tag=!sitting_kit] ~~~ tp @s ~~-0.25~
 execute @s[tag=!sitting_kit] ~~~ tp @s ~~-0.25~

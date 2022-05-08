@@ -36,12 +36,13 @@
         "riding": {
           "transitions": [
             {
-              "default": "query.has_rider"
+              "default": "!query.has_rider"
             }
           ],
           "on_entry": [
+            "/tag @s add riding",
             "/tag @p add player_riding",
-            "/tag @p add stand_judge"
+            "/tag @p add player_riding2"
           ]
         },
         "standing": {
@@ -51,10 +52,11 @@
             }
           ],
           "on_entry": [
-            "/tag @a[r=1.5] remove player_riding",
-            "/gamerule sendcommandfeedback false",
-            "/execute @s[scores={sitting_kit=5..}] ~~~ tp @p[r=1.5,rm=1.0,tag=!player_riding,tag=stand_judge] ~~0.5~",
-            "/gamerule sendcommandfeedback true"
+            "/tell @p 立った( ᐛ )",
+            "/tag @s remove riding",
+            "/execute @s ~~~ tag @a[r=2] remove player_riding",
+            "/tp @p[tag=player_riding2,tag=!player_riding] ~~1~",
+            "/execute @s ~~~ tag @a[r=2] remove player_riding2"
           ]
         }
       }
