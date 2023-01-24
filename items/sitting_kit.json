@@ -1,16 +1,16 @@
 {
-    "format_version": "1.17.2",
+    "format_version": "1.19.51",
     "minecraft:item": {
       "description": {
-        "identifier": "anywhere_sitting:sitting_kit",
+        "identifier": "sitting_kit:sitting_kit",
         "category": "Items"
       },
       "components": {
         "minecraft:display_name": {
-          "value": "§6Sitting Kit\n\n§fいろんなものを一瞬で座れるものにしてしまうキット。"
+          "value": "§bSitting Kit"
       },
         "minecraft:entity_placer": {
-          "entity": "anywhere_sitting:sitting_kit"
+          "entity": "sitting_kit:sitting_kit"
         },
         "minecraft:foil": true,
         "minecraft:stacked_by_data": true,

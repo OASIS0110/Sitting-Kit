@@ -2,7 +2,7 @@
     "format_version": "1.12",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "anywhere_sitting:sitting_kit_warped"
+            "identifier": "sitting_kit:sitting_kit_warped"
         },
         "tags": ["crafting_table"],
         "pattern": [
@@ -19,8 +19,8 @@
             }
         },
         "result": {
-            "item": "anywhere_sitting:sitting_kit",
-            "count": 2
+            "item": "sitting_kit:sitting_kit",
+            "count": 4
         }
     }
 }

@@ -2,20 +2,10 @@
   "format_version": "1.16.200",
   "minecraft:entity": {
     "description": {
-      "identifier": "anywhere_sitting:sitting_kit",
+      "identifier": "sitting_kit:sitting_kit",
       "is_spawnable": false,
       "is_summonable": true,
-      "is_experimental": false,
-      "scripts": {
-        "animate": [
-          "sitting_kit",
-          "has_rider"
-        ]
-      },
-      "animations": {
-        "sitting_kit": "controller.animation.sitting_kit",
-        "has_rider": "controller.animation.has_rider"
-      }
+      "is_experimental": false
     },
 
     "components": {
@@ -34,7 +24,6 @@
         "height": 0.6
       },
       "minecraft:rideable": {
-        "interact_text": "座る",
         "seat_count": 1,
         "pull_in_entities": false,
 
@@ -70,7 +59,26 @@
             "cause": "all",
             "deals_damage": false,
             "on_damage":{
+              "filters": [
+                { "test": "has_damage", "value": "attack", "subject": "self", "operator": "=="},
+                { "test": "has_tag", "value": "NowGamemode_c", "subject": "other", "operator": "!="}
+              ],
               "event": "instant_despawn"
+            }
+          },
+          {
+            "cause": "all",
+            "deals_damage": false,
+            "on_damage":{
+              "filters": { "test": "has_damage", "value": "attack", "subject": "self", "operator": "!="}
+            }
+          },
+          {
+            "cause": "all",
+            "deals_damage": false,
+            "on_damage":{
+              "filters": { "test": "has_tag", "value": "NowGamemode_c", "subject": "other", "operator": "=="},
+              "event": "instant_kill"
             }
           }
         ]
@@ -86,9 +94,14 @@
             "min_wait_time": 0,
             "max_wait_time": 0,
             "spawn_sound": "plop",
-            "spawn_item": "anywhere_sitting:sitting_kit",
+            "spawn_item": "sitting_kit:sitting_kit",
             "single_use": true
           }
+        }
+      },
+      "instant_kill": {
+        "minecraft:instant_despawn": {
+          "remove_child_entities": false
         }
       }
     },
@@ -97,6 +110,13 @@
         "add": {
           "component_groups": [
             "instant_despawn"
+          ]
+        }
+      },
+      "instant_kill": {
+        "add": {
+          "component_groups": [
+            "instant_kill"
           ]
         }
       }
